@@ -49,11 +49,11 @@ const App = () => {
         onChange={(e) => setBitcoinAddress(e.target.value)}
       />
       <button onClick={handleLookup}>Look up</button>
-      <h2>Results</h2>
       <div>
         {
           searching ? <div className='status'>Searching...</div> : 
-          searchPerformed && results.length > 0 && results.map((inscriptionId, index) =>
+          searchPerformed && results.length > 0 && <h2>Results</h2> 
+          && results.map((inscriptionId, index) =>
             <div
               className={`group ${clicked === index ? 'clicked' : ''}`}
               key={index}
