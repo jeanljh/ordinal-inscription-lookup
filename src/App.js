@@ -49,25 +49,23 @@ const App = () => {
         onChange={(e) => setBitcoinAddress(e.target.value)}
       />
       <button onClick={handleLookup}>Look up</button>
-      <h2>Results</h2>
       <div>
-        {searching ? (
-          <div className='status'>Searching...</div>
-        ) : (
-          searchPerformed && results.length > 0 && (
-            results.map((inscriptionId, index) => (
-              <div
-                className={`group ${clicked === index ? 'clicked' : ''}`}
-                key={index}
-                onClick={() => handleClick(index)}
-              >
-                Inscription {inscriptionId.slice(0, 8)}
-                {clicked === index && <span> Clicked</span>}
-              </div>
-            ))
+        {
+          searching ? <div className='status'>Searching...</div> : 
+          searchPerformed && results.length > 0 && <h2>Results</h2> 
+          && results.map((inscriptionId, index) =>
+            <div
+              className={`group ${clicked === index ? 'clicked' : ''}`}
+              key={index}
+              onClick={() => handleClick(index)}
+            > Inscription {inscriptionId.slice(0, 8)} {clicked === index && <span>Clicked</span>}
+            </div>
           )
-        )}
-        {searchPerformed && results.length < 1 && !searching && <div className='status'>No Inscription IDs found</div>}
+        }
+        {
+          searchPerformed && results.length < 1 && !searching && 
+          <div className='status'>No Inscription IDs found</div>
+        }
       </div>
     </div>
   );
