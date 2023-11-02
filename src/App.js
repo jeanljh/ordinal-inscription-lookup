@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 
 const App = () => {
   const [bitcoinAddress, setBitcoinAddress] = useState('');
@@ -40,7 +39,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <h1>Ordinal Inscription Lookout</h1>
       <label>Owner Bitcoin Address:</label>
       <input
